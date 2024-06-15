@@ -15,7 +15,7 @@ class Data extends Controller
         $data['client'] = $this->model('Client_model')->getAllClient();
         $this->view('templates/header', $data);
         $this->view('templates/navbar', $data);
-        $this->view('Data/index', $data);
+        $this->view('data/index', $data);
         $this->view('templates/footer');
         $this->view('templates/resource');
     }
@@ -30,9 +30,24 @@ class Data extends Controller
         $data['project'] = $this->model('Project_model')->getAllProject();
         $this->view('templates/header', $data);
         $this->view('templates/navbar', $data);
-        $this->view('Data/project', $data);
+        $this->view('data/project', $data);
         $this->view('templates/footer');
         $this->view('templates/resource');
+    }
+    public function kategori()
+    {
+        $data['method'] = 'Daftar Kategori';
+        $data['subjudul'] = 'Daftar Kategori';
+        $data['judul'] = KATEGORI;
+        $data['kategori'] = $this->model('Kategori_model')->getAllKategori();
+
+        $this->view('templates/header',$data);
+        $this->view('templates/navbar',$data);
+        $this->view('data/kategori',$data);
+        $this->view('templates/footer');
+        $this->view('templates/resource');
+
+
     }
     public function inputClient()
     {

@@ -84,7 +84,7 @@
     <br>
     <table class='invoice-table'>
         <thead>
-            <tr style='background-color: #cccccc; '>
+            <tr style='background-color: #4AB648; '>
                 <th>No</th>
                 <th>Items</th>
                 <th>Qty</th>
@@ -105,14 +105,14 @@
           <?php if($data['pajak'] >0) :?>
             <tr>
                 <td colspan='4' style="border-bottom: 2px solid #FFFFFF;"></td>
-                <td class='right-align' style='background-color: #cccccc; font-weight: bold; text-align:right;'>Pajak</td>
-                <td style='background-color: #cccccc; font-weight: bold;'><?= formatCurrency($data['pajak']) ?></td>
+                <td class='right-align' style='background-color: #4AB648; font-weight: bold; text-align:right;'>Pajak</td>
+                <td style='background-color: #4AB648; font-weight: bold;'><?= formatCurrency($data['pajak']) ?></td>
             </tr>
         <?php endif ?>
             <tr>
                 <td colspan='4'><strong>Terbilang:</strong><br><?= $data['amountInWords']?></td>
-                <td style='background-color: #cccccc ; font-weight: bold; text-align:right;'>Total</td>
-                <td style='background-color: #cccccc; font-weight: bold;'><?= formatCurrency($data['total']) ?></td>
+                <td style='background-color: #4AB648 ; font-weight: bold; text-align:right;'>Total</td>
+                <td style='background-color: #4AB648; font-weight: bold;'><?= formatCurrency($data['total']) ?></td>
             </tr>
         </tbody>
     </table>
@@ -120,7 +120,7 @@
     <table class='no-border' style='width: 100%; margin-top:50px;'>
         <tr>
             <td style='font-weight: bold;'>Informasi Pembayaran:</td>
-            <td class='center-align'><?= $data['city']?>, <?= $data['formattedDate']?></td>
+           
         </tr>
         <tr>
             <td>Pembayaran Dilakukan Pada Rekening</td>
@@ -134,9 +134,19 @@
         <tr>
             <td>No.Rek: <?=$data['paymentAccountNumber']?></td>
         </tr>
-        <tr class='right-align'>
+       
+    </table>
+    <table  style='width: 100%;'>
+    <tr style="margin-bottom:50px">
+            <td style='width: 450px;'></td>
+            <td style="text-align: center;"><?= $data['city']?>, <?= $data['formattedDate']?></td>
+        </tr>
+        <tr style="height:100px;">
+            <td style="height: 100px;" ></td>
+        </tr>
+    <tr>
             <td></td>
-            <td class='center-align'><?= $data['bomName'] ?><br><?= $data['namajabatan'] ?></td>
+            <td style="text-align: center;"><?= $data['bomName'] ?><br><?= $data['namajabatan'] ?></td>
         </tr>
     </table>
     <!-- <footer id="footer" class="footer">

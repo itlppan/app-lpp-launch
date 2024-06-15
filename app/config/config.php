@@ -13,6 +13,7 @@ define('CLIENT', 'Data Entitas');
 define('PROJECT', 'Data Project');
 define('OPERASIONAL','Realisasi Project');
 define('MASTER', 'App Setting');
+define('KATEGORI','Kategori Project');
 define('ALL','all');
 define('UNPAID','unpaid');
 define('PAID','paid');

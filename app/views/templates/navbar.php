@@ -95,10 +95,10 @@
         </li><!-- End Forms Nav -->
       
         <li class="nav-item">
-          <a class="nav-link <?=( $data['judul'] == CLIENT || $data['judul'] == PROJECT) ? '' : 'collapsed' ?>" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
+          <a class="nav-link <?=( $data['judul'] == CLIENT || $data['judul'] == PROJECT || $data['judul'] == KATEGORI) ? '' : 'collapsed' ?>" data-bs-target="#tables-nav" data-bs-toggle="collapse" href="#">
             <i class="bi bi-layout-text-window-reverse"></i><span>Data</span><i class="bi bi-chevron-down ms-auto"></i>
           </a>
-          <ul id="tables-nav" class="nav-content collapse <?= ( $data['judul'] == CLIENT || $data['judul'] == PROJECT) ? 'show' : '' ?>" data-bs-parent="#sidebar-nav">
+          <ul id="tables-nav" class="nav-content collapse <?= ( $data['judul'] == CLIENT || $data['judul'] == PROJECT || $data['judul'] == KATEGORI) ? 'show' : '' ?>" data-bs-parent="#sidebar-nav">
             <li>
               <a href="<?= BASEURL ?>/data" class="<?= $data['judul'] == CLIENT ? 'active' : '' ?>">
                 <i class="bi bi-circle"></i><span>Data Entitas</span>
@@ -107,6 +107,11 @@
             <li>
               <a href="<?= BASEURL ?>/data/project" class="<?= $data['judul'] == PROJECT ? 'active' : '' ?>">
                 <i class="bi bi-circle"></i><span>Data Project</span>
+              </a>
+            </li>
+            <li>
+              <a href="<?= BASEURL ?>/data/kategori" class="<?= $data['judul'] == KATEGORI ? 'active' : '' ?>">
+                <i class="bi bi-circle"></i><span>Kategori Project</span>
               </a>
             </li>
           </ul>
