@@ -31,12 +31,6 @@
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputEmail" class="col-sm-2 col-form-label">Jenis Project</label>
-                  <div class="col-sm-10">
-                    <input type="text" name="jenis" class="form-control" required>
-                  </div>
-                </div>
-                <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-2 col-form-label">Pajak</label>
                   <div class="col-sm-10">
                   <select class="form-select" name="pajak" aria-label="Default select example">
@@ -49,10 +43,10 @@
                 <div class="row mb-3">
                   <label for="inputNumber" class="col-sm-2 col-form-label">Kategori Project</label>
                   <div class="col-sm-10">
-                  <select class="form-select" name="pajak" aria-label="Default select example">
+                  <select class="form-select" name="id_kategori" aria-label="Default select example">
                         <option selected disabled>Pilih Kategori</option>
                         <?php  foreach ($data['kategori'] as $kategori) : ?>
-                        <option value="<?= $data['id'] ?>"><?= $data['nama_kategori'] ?></option>
+                        <option value="<?= $kategori['id'] ?>"><?= $kategori['nama_kategori'] ?></option>
                         <?php endforeach; ?>
                   </select>
                   </div>
@@ -177,9 +171,14 @@
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <label for="inputEmail" class="col-sm-2 col-form-label">Jenis Project</label>
+                  <label for="inputNumber" class="col-sm-2 col-form-label">Kategori Project</label>
                   <div class="col-sm-10">
-                    <input type="text" name="jenis" class="form-control" value="<?= $row['jenis'] ?>" required>
+                  <select class="form-select" name="jenis" aria-label="Default select example">
+                        <option selected disabled>Pilih Kategori</option>
+                        <?php  foreach ($data['kategori'] as $kategori) : ?>
+                        <option value="<?= $kategori['nama_kategori'] ?>"><?= $kategori['nama_kategori'] ?></option>
+                        <?php endforeach; ?>
+                  </select>
                   </div>
                 </div>
                 <div class="row mb-3">

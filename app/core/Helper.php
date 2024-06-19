@@ -57,3 +57,32 @@ function terbilang($nilai) {
     }  
     return $hasil . " rupiah"; // Tambahkan "rupiah" di akhir
 }
+
+function formatTanggal($tanggal){
+    // Mengubah tanggal menjadi timestamp
+    $timestamp = strtotime($tanggal);
+
+    // Array untuk nama bulan dalam bahasa Indonesia
+    $bulan = array(
+        1 => 'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+    );
+
+    // Membuat format tanggal
+    $tgl = date('d', $timestamp);
+    $bln = $bulan[(int)date('m', $timestamp)];
+    $thn = date('Y', $timestamp);
+
+    // Mengembalikan tanggal yang sudah diformat
+    return $tgl . ' ' . $bln . ' ' . $thn;
+}

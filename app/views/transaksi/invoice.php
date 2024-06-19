@@ -54,7 +54,7 @@
             <td class='left-align'><img src='img/unnamed.png' style='width: 100px; height:100px;'></td>
             <td class='header'>
                 <h1 style='margin: 0; font-size: 40px;'>INVOICE</h1>
-                Tanggal: <?= $data['tanggal']?><br>No: <?= $data['no_invoice']?>
+                Tanggal: <?= formatTanggal($data['tanggal'])?><br>No: <?= $data['no_invoice']?>
             </td>
         </tr>
     </table>
@@ -62,23 +62,23 @@
     <table class='no-border' style='width: 100%; margin-bottom:25px; margin-top:25px;'>
         <tr>
             <td><strong><?=$data['nama_perusahaan_lpp']?></strong></td>
+            <td style='width: 200px;'></td>
             <td class='right-align'><strong><?=$data['nama_client']?></strong></td>
         </tr>
         <tr >
             <td><?= $data['alamat_lpp']?></td>
+            <td></td>
             <td class='right-align'><?= $data['alamat']?></td>
         </tr>
         <tr>
             <td><?= $data['no_telp_lpp']?></td>
+            <td></td>
             <td class='right-align'><?= $data['no_pic'] ?></td>
         </tr>
         <tr>
-            <td><?= $data['npwplpp'] ?></td>
+        <td><?= $data['email_lpp'] ?></td>
+            <td></td>
             <td class='right-align'><?= $data['nama_pic']?></td>
-        </tr>
-        <tr>
-            <td><?= $data['email_lpp'] ?></td>
-            <td class='right-align'></td>
         </tr>
     </table>
     <br>
@@ -86,9 +86,8 @@
         <thead>
             <tr style='background-color: #4AB648; '>
                 <th>No</th>
-                <th>Items</th>
+                <th>Description</th>
                 <th>Qty</th>
-                <th>Jenis</th>
                 <th>Harga</th>
                 <th>Total</th>
             </tr>
@@ -96,28 +95,27 @@
         <tbody>
             <tr>
                 <td>1</td>
-                <td><?= $data['nama_item'] ?></td>
+                <td><?= $data['nama_item']?> (<?= $data['tanggal_mulai'] ,' - ', $data['tanggal_selesai']?>)</td>
                 <td><?= $data['qty']?></td>
-                <td><?= $data['jenis'] ?></td>
                 <td><?= formatCurrency($data['harga']) ?></td>
                 <td><?= formatCurrency($data['subTotal'])?></td>
-            </tr>
+            </tr>   
           <?php if($data['pajak'] >0) :?>
             <tr>
-                <td colspan='4' style="border-bottom: 2px solid #FFFFFF;"></td>
+                <td colspan='3' style="border-bottom: 2px solid #FFFFFF;"></td>
                 <td class='right-align' style='background-color: #4AB648; font-weight: bold; text-align:right;'>Pajak</td>
                 <td style='background-color: #4AB648; font-weight: bold;'><?= formatCurrency($data['pajak']) ?></td>
             </tr>
         <?php endif ?>
             <tr>
-                <td colspan='4'><strong>Terbilang:</strong><br><?= $data['amountInWords']?></td>
+                <td colspan='3'><strong>Terbilang:</strong><br><?= $data['amountInWords']?></td>
                 <td style='background-color: #4AB648 ; font-weight: bold; text-align:right;'>Total</td>
                 <td style='background-color: #4AB648; font-weight: bold;'><?= formatCurrency($data['total']) ?></td>
             </tr>
         </tbody>
     </table>
     <br>
-    <table class='no-border' style='width: 100%; margin-top:50px;'>
+    <table class='no-border' style='width: 100%;'>
         <tr>
             <td style='font-weight: bold;'>Informasi Pembayaran:</td>
            
@@ -139,7 +137,7 @@
     <table  style='width: 100%;'>
     <tr style="margin-bottom:50px">
             <td style='width: 450px;'></td>
-            <td style="text-align: center;"><?= $data['city']?>, <?= $data['formattedDate']?></td>
+            <td style="text-align: center;"><?= $data['city']?>, <?= formatTanggal($data['tanggal'])?></td>
         </tr>
         <tr style="height:100px;">
             <td style="height: 100px;" ></td>
@@ -149,11 +147,7 @@
             <td style="text-align: center;"><?= $data['bomName'] ?><br><?= $data['namajabatan'] ?></td>
         </tr>
     </table>
-    <!-- <footer id="footer" class="footer">
-  <div class="copyright">
-    <span><img src="<?= BASEURL ?>/img/Instagram_icon.png.webp" style="width: 25px; display:flex; align-item:center;" alt=""> @Lpplearning</span> <span>lpp.co.id</span>
-  </div> -->
-</footer><!-- End Footer -->
+  
 
 </body>
 </html>

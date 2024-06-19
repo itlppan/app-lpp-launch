@@ -88,6 +88,8 @@ class Transaksi extends Controller
                 'no_pic' => htmlspecialchars($_POST["no_pic"]),
                 'jenis' => htmlspecialchars($_POST["jenis"]),
                 'tanggal' => htmlspecialchars($_POST["tanggal"]),
+                'tanggal_mulai' => htmlspecialchars($_POST["tanggal_mulai"]),
+                'tanggal_selesai' => htmlspecialchars($_POST["tanggal_selesai"]),
                 'nama_item' => htmlspecialchars($_POST["nama_item"]),
                 'qty' => htmlspecialchars($_POST["qty"]),
                 'harga' => htmlspecialchars($_POST["harga"]),
@@ -100,7 +102,7 @@ class Transaksi extends Controller
             $data['formattedDate'] = date("d F Y", time());
             $data['city'] = "Yogyakarta";
             $data['nama_perusahaan_lpp'] = "PT LPP Agro Nusantara";
-            $data['alamat_lpp'] = "Jalan LPP No.1 Yogyakarta";
+            $data['alamat_lpp'] = "Jl. LPP No.1, Klitren, Kec. Gondokusuman, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55222";
             $data['no_telp_lpp'] = "(0274)-586201,551927";
             $data['npwplpp'] = "02.264.723.4.541.000";
             $data['email_lpp'] = "info@lpp.co.id";
@@ -109,10 +111,10 @@ class Transaksi extends Controller
             $data['paymentBank'] = "Mandiri";
             $data['paymentAccountName'] = "PT LPP Agro Nusantara";
             $data['paymentAccountNumber'] = "1370011483563";
-
+            
             // Load view dan ambil output
             $html = $this->view('transaksi/invoice', $data, true);
-            $nama = $_POST["no_invoice"];
+            $nama = 'Invoice '.$_POST["no_invoice"];
             // Cetak menggunakan mPDF
             $mpdf->WriteHTML($html);
             $mpdf->Output($nama, 'I');

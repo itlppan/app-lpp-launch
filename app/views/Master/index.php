@@ -2,6 +2,7 @@
       <div class="row">
         <div class="col-xl-12">
           <div class="card">
+            <?php var_dump($_SESSION['id']); ?>
             <div class="card-body pt-3">
               <!-- Bordered Tabs -->
               <ul class="nav nav-tabs nav-tabs-bordered">

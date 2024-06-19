@@ -31,7 +31,7 @@ class Auth extends Controller
                 session_start();
                 $_SESSION['login'] = true;
                 $_SESSION['user'] = $data['username'];
-               
+                $_SESSION['id'] = $user['user_id'];
                 header('Location: ' . BASEURL . '/Home');
                 exit;
             } else {

@@ -21,57 +21,60 @@
                           </div>
                           <div class="modal-body">
                           <form action="<?= BASEURL ?>/data/inputClient" method="post">
-                <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">Nama Entitas</label>
-                  <div class="col-sm-10">
-                    <input type="text" name="nama_client" class="form-control">
-                  </div>
+                <div class="form-group">
+                    <label for="nama_client" >Nama Entitas</label>
+                    <input type="text" name="nama_client" id="nama_client" class="form-control">
                 </div>
-                <div class="row mb-3">
-                  <label for="inputEmail" class="col-sm-2 col-form-label">Kategori Project</label>
-                  <div class="col-sm-10">
-                    <input type="text" name="kategori_project" class="form-control">
-                  </div>
+                <div class="form-group">
+                    <label for="kategori_project">Kategori Project</label>
+                    <select class="form-select" name="kategori_project" aria-label="Default select example">
+                      <option selected disabled>Pilih Kategori</option>
+                      <?php  foreach ($data['kategori'] as $kategori) : ?>
+                        <option value="<?= $kategori['nama_kategori'] ?>"><?= $kategori['nama_kategori'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
-                <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-2 col-form-label">Alamat</label>
-                  <div class="col-sm-10">
+                <div class="form-group">
+                  <label for="inputNumber">Alamat</label>
                     <input type="text" name="alamat" class="form-control">
-                  </div>
                 </div>
-                <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-2 col-form-label">Nama PIC</label>
-                  <div class="col-sm-10">
+                <div class="form-group">
+                  <label for="inputNumber">Kecamatan</label>
+                    <input type="text" name="kecamatan" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="inputNumber">Kabupaten</label>
+                    <input type="text" name="kabupaten" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="inputNumber">Provinsi</label>
+                    <input type="text" name="provinsi" class="form-control">
+                </div>
+                <div class="form-group">
+                  <label for="inputNumber">Nama PIC</label>
                     <input type="text" name="nama_pic" class="form-control">
-                  </div>
                 </div>
-                <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-2 col-form-label">No PIC</label>
-                  <div class="col-sm-10">
+                <div class="form-group">
+                  <label for="inputNumber">No PIC</label>
                     <input type="number" name="no_pic" class="form-control">
-                  </div>
                 </div>
-                <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-2 col-form-label">NPWP</label>
-                  <div class="col-sm-10">
+                <div class="form-group">
+                  <label for="inputNumber">NPWP</label>
                     <input type="number" name="npwp" class="form-control">
-                  </div>
                 </div>
-                <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-2 col-form-label">Alamat NPWP</label>
-                  <div class="col-sm-10">
+                <div class="form-group">
+                  <label for="inputNumber">Alamat NPWP</label>
                     <input type="text" name="alamat_npwp" class="form-control">
-                  </div>
                 </div>
 
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label"></label>
+                <div class="form-group">
+                  <label></label>
                   <div class="col-sm-10">
                     
                     <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="submit" name="input" class="btn btn-primary">Save As New</button>
-                          </div>
+                    </div>
                   </div>
                 </div>
 
@@ -145,48 +148,45 @@
             <div class="modal-body">
                 <!-- General Form Elements -->
                 <form method="post" action="<?= BASEURL ?>/data/editclient/<?= $row["id_client"]?>">
-                    <input type="hidden" name="id_client" value="<?= $row["id_client"] ?>">
-                    <div class="row mb-3">
-                        <label for="inputText" class="col-sm-2 col-form-label">Nama Entitas</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="nama_client" class="form-control" value="<?= $row["nama_client"] ?>">
-                        </div>
-                    </div>
-                    <div class="row mb-3">
-                        <label for="inputEmail" class="col-sm-2 col-form-label">Kateori Project</label>
-                        <div class="col-sm-10">
+                        <input type="hidden" name="id_client" value="<?= $row["id_client"] ?>">
+                    <div class="form-group">
+                        <label for="inputText">Nama Entitas</label>
+                        <input type="text" name="nama_client" class="form-control" value="<?= $row["nama_client"] ?>">
+                    <div class="form-group">
+                        <label for="inputEmail">Kateori Project</label>
                             <input type="text" name="kategori_project" class="form-control" value="<?= $row["kategori_project"] ?>">
-                        </div>
                     </div>
-                    <div class="row mb-3">
-                        <label for="inputNumber" class="col-sm-2 col-form-label">Alamat</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="alamat" class="form-control" value="<?= $row["alamat"] ?>">
-                        </div>
+                    <div class="form-group">
+                        <label for="inputNumber">Alamat</label>
+                        <input type="text" name="alamat" class="form-control" value="<?= $row["alamat"] ?>">
                     </div>
-                    <div class="row mb-3">
-                        <label for="inputNumber" class="col-sm-2 col-form-label">Nama PIC</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="nama_pic" class="form-control" value="<?= $row["nama_pic"] ?>">
-                        </div>
+                    <div class="form-group">
+                        <label for="inputNumber">Kecamatan</label>
+                        <input type="text" name="kecamatan" class="form-control" value="<?= $row['kecamatan'] ?>">
                     </div>
-                    <div class="row mb-3">
-                        <label for="inputNumber" class="col-sm-2 col-form-label">No PIC</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="no_pic" class="form-control" value="<?= $row["no_pic"] ?>">
-                        </div>
+                    <div class="form-group">
+                        <label for="inputNumber">Kabupaten</label>
+                        <input type="text" name="kabupaten" class="form-control" value="<?= $row['kabupaten'] ?>">
                     </div>
-                    <div class="row mb-3">
-                        <label for="inputNumber" class="col-sm-2 col-form-label">NPWP</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="npwp" class="form-control" value="<?= $row["npwp"] ?>">
-                        </div>
+                    <div class="form-group">
+                        <label for="inputNumber">Provinsi</label>
+                        <input type="text" name="provinsi" class="form-control" value="<?= $row['provinsi'] ?>">
                     </div>
-                    <div class="row mb-3">
-                        <label for="alamat_npwp" class="col-sm-2 col-form-label">Alamat NPWP</label>
-                        <div class="col-sm-10">
-                            <input type="text" name="alamat_npwp" class="form-control" value="<?= $row["alamat_npwp"] ?>">
-                        </div>
+                    <div class="form-group">
+                        <label for="inputNumber">Nama PIC</label>
+                        <input type="text" name="nama_pic" class="form-control" value="<?= $row["nama_pic"] ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputNumber">No PIC</label>
+                        <input type="text" name="no_pic" class="form-control" value="<?= $row["no_pic"] ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="inputNumber">NPWP</label>
+                        <input type="text" name="npwp" class="form-control" value="<?= $row["npwp"] ?>">
+                    </div>
+                    <div class="form-group">
+                        <label for="alamat_npwp">Alamat NPWP</label>
+                        <input type="text" name="alamat_npwp" class="form-control" value="<?= $row["alamat_npwp"] ?>">
                     </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>

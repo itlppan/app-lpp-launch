@@ -180,7 +180,7 @@
                             <input type="text" class="form-control" id="nama_client" name="nama_client" placeholder="Masukkan nama client" value="<?= $row["nama_client"] ?>">
                           </div>
                           <div class="form-group">
-                            <label for="to">Tanggal:</label>
+                            <label for="to">Invoice Date:</label>
                             <input type="date" class="form-control" id="tanggal" name="tanggal" placeholder="Masukkan Tanggal " value="<?= $row["tanggal"] ?>">
                           </div>
                           <div class="form-group">
@@ -214,6 +214,14 @@
                           <div class="form-group">
                             <label for="items_unit_cost">Harga Satuan:</label>
                             <input type="number" class="form-control" id="harga" name="harga" placeholder="Masukkan Harga Satuan" value="<?= $row["harga"] ?>">
+                          </div>
+                          <div class="form-group">
+                            <label for="to">Start Date:</label>
+                            <input type="date" class="form-control" id="tanggal" name="	tanggal_mulai" placeholder="Masukkan Tanggal " value="<?= $row["tanggal"] ?>">
+                          </div>
+                          <div class="form-group">
+                            <label for="to">End Date:</label>
+                            <input type="date" class="form-control" id="tanggal" name="tanggal_selesai" placeholder="Masukkan Tanggal " value="<?= $row["tanggal"] ?>">
                           </div>
                           <div class="form-group">
                             <label for="tax">Pajak:</label>
@@ -1145,6 +1153,5 @@
                 </div>
             </div>
           <!-- Modal Input Data End -->
-           
     </section>
     </main><!-- End #main -->

@@ -38,7 +38,7 @@
                       <button class="btn btn-primary  w-100" type="submit" name="login">Login</button>
                     </div>
                     <div class="col-12">
-                      <p class="small mb-0">Don't have account? <a href="<?= BASEURL ?>/auth/register">Create an account</a></p>
+                      <p class="small mb-0">Don't have account? <a href="<?= BASEURL ?>/auth/register">Please Contact IT Staff</a></p>
                     </div>
                   </form>
                 </div>

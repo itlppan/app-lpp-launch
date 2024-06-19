@@ -11,7 +11,7 @@
           <div class="card recent-sales overflow-auto">
             <div class="card-body">
             <h5 class="card-title">Data Kategori Project</h5>
-        <a class="btn btn-primary mr-3"  data-bs-toggle="modal" data-bs-target="#input">
+                    <a class="btn btn-primary mr-3"  data-bs-toggle="modal" data-bs-target="#input">
                       New Input
                     </a>
               <!-- Modal Input -->
@@ -23,7 +23,7 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
-                          <form method="post" action="<?= BASEURL ?>/data/inputproject">
+                          <form method="post" action="<?= BASEURL ?>/data/inputkategori">
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Nama Kategori</label>
                   <div class="col-sm-10">
@@ -81,7 +81,7 @@
                           </div>
                           <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <a class="btn btn-primary" href="<?= BASEURL ?>/data/deleteProject/<?=$id;?>">Delete</a>
+                            <a class="btn btn-primary" href="<?= BASEURL ?>/data/deleteKategori/<?=$id;?>">Delete</a>
                           </div>
                         </div>
                       </div>
@@ -102,12 +102,12 @@
             </div>
             <div class="modal-body">
                 <!-- General Form Elements -->
-                <form method="post" action="<?= BASEURL ?>/data/editproject/<?= $row['id'] ?>">
+                <form method="post" action="<?= BASEURL ?>/data/editkategori/<?= $row['id'] ?>">
                 <input type="hidden" name="id" class="form-control" value="<?= $row['id'] ?>" required>
                 <div class="row mb-3">
                   <label for="inputText" class="col-sm-2 col-form-label">Nama Project</label>
                   <div class="col-sm-10">
-                    <input type="text" name="nama_item" class="form-control" value="<?= $row['nama_kategori'] ?>" required>
+                    <input type="text" name="nama_kategori" class="form-control" value="<?= $row['nama_kategori'] ?>" required>
                   </div>
                 </div>
                 <div class="row mb-3">

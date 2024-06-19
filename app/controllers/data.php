@@ -12,6 +12,7 @@ class Data extends Controller
         $data['judul'] = CLIENT;
         $data['data-nav'] = "nav-link";
         $data['data-link'] = "active";
+        $data['kategori'] = $this->model('Kategori_model')->getAllKategori();
         $data['client'] = $this->model('Client_model')->getAllClient();
         $this->view('templates/header', $data);
         $this->view('templates/navbar', $data);
@@ -25,9 +26,8 @@ class Data extends Controller
         $data['method'] = 'Daftar Project';
         $data['subjudul'] = 'Daftar Project';
         $data['judul'] = PROJECT;
-        $data['dashboard-link'] = "nav-link";
-        $data['data-link'] = "active";
-        $data['project'] = $this->model('Project_model')->getAllProject();
+        $data['kategori'] = $this->model('Kategori_model')->getAllKategori();
+        $data['project'] = $this->model('Project_model')->getAll();
         $this->view('templates/header', $data);
         $this->view('templates/navbar', $data);
         $this->view('data/project', $data);
@@ -40,7 +40,6 @@ class Data extends Controller
         $data['subjudul'] = 'Daftar Kategori';
         $data['judul'] = KATEGORI;
         $data['kategori'] = $this->model('Kategori_model')->getAllKategori();
-
         $this->view('templates/header',$data);
         $this->view('templates/navbar',$data);
         $this->view('data/kategori',$data);
@@ -74,6 +73,19 @@ class Data extends Controller
             exit;
         }
     }
+    public function inputkategori()
+    {
+        if ($this->model('Kategori_model')->tambahDataKategori($_POST) > 0) {
+            Flasher::setFlash('berhasil', 'ditambahkan', 'success');
+            header('Location: ' . BASEURL . '/data/kategori');
+            exit;
+        } else 
+        {
+            Flasher::setFlash('gagal', 'ditambahkan', 'danger');
+            header('Location: ' . BASEURL . '/data/kategori');
+            exit;
+        }
+    }
     public function deleteclient($id)
     {
         if ($this->model('Client_model')->hapusDataClient($id) > 0) {
@@ -99,6 +111,18 @@ class Data extends Controller
             exit;
         }
     }
+    public function deleteKategori($id)
+    {
+        if ($this->model('Kategori_model')->hapusDataKategori($id) > 0) {
+            Flasher::setFlash('Berhasil', 'Di Hapus', 'success');
+            header('Location: ' . BASEURL . '/data/kategori');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'dihapus', 'danger');
+            header('Location: ' . BASEURL . '/data/kategori');
+            exit;
+        }
+    }
     public function editproject()
     {
         if ($this->model('Project_model')->ubahDataProject($_POST) > 0) {
@@ -108,6 +132,18 @@ class Data extends Controller
         } else {
             Flasher::setFlash('gagal', 'diubah', 'danger');
             header('Location: ' . BASEURL . '/data/project');
+            exit;
+        }
+    }
+    public function editkategori()
+    {
+        if ($this->model('Kategori_model')->ubahDataKategori($_POST) > 0) {
+            Flasher::setFlash('berhasil', 'diubah', 'success');
+            header('Location: ' . BASEURL . '/data/kategori');
+            exit;
+        } else {
+            Flasher::setFlash('gagal', 'diubah', 'danger');
+            header('Location: ' . BASEURL . '/data/kategori');
             exit;
         }
     }

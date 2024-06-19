@@ -13,6 +13,11 @@ class Project_model{
         $this->db->query('SELECT * FROM '.$this->tabel);
         return $this->db->resultSet();
     }
+    public function getAll()
+    {
+        $this->db->query("SELECT * FROM project");
+        return $this->db->resultSet();
+    }
     public function getRecentSales()
     {
         $this->db->query("SELECT 
@@ -49,13 +54,13 @@ class Project_model{
     }
     public function tambahDataProject($data)
     {
-       
-        $query = "INSERT INTO $this->tabel (`id_project`, `nama_item`, `jenis`, `pajak`, `tanggal_mulai`, `tanggal_selesai`,`jpl`, `harga`, `lokasi` )
+        // INSERT INTO `project` (`id_project`, `id_kategori`, `nama_item`, `jenis`, `pajak`, `tanggal_mulai`, `tanggal_selesai`, `jpl`, `harga`, `lokasi`)
+        $query = "INSERT INTO $this->tabel (`id_project`, `id_kategori`,`nama_item` ,`jenis`, `pajak`, `tanggal_mulai`, `tanggal_selesai`,`jpl`, `harga`, `lokasi` )
                 VALUES
-                ('', :nama_item, :jenis, :pajak, :tanggal_mulai, :tanggal_selesai, :jpl, :harga, :lokasi )";
+                ('', :id_kategori,:nama_item,'', :pajak, :tanggal_mulai, :tanggal_selesai, :jpl, :harga, :lokasi )";
                 $this->db->query($query);
                 $this->db->bind('nama_item', clean_data($data['nama_item']));
-                $this->db->bind('jenis', clean_data($data['jenis']));
+                $this->db->bind('id_kategori', clean_data($data['id_kategori']));
                 $this->db->bind('pajak', clean_data($data['pajak']));
                 $this->db->bind('tanggal_mulai', clean_data($data['tanggal_mulai']));
                 $this->db->bind('tanggal_selesai', clean_data($data['tanggal_selesai']));

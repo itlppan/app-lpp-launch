@@ -24,10 +24,13 @@ class Client_model{
     {
         $query = "INSERT INTO $this->tabel
                 VALUES
-                ('', :nama_client, :alamat, :kategori_project, :nama_pic, :no_pic, :npwp, :alamat_npwp)";
+                ('', :nama_client, :alamat, :kecamatan, :kabupaten, :provinsi, :kategori_project, :nama_pic, :no_pic, :npwp, :alamat_npwp)";
                 $this->db->query($query);
                 $this->db->bind('nama_client', clean_data($data['nama_client']));
                 $this->db->bind('alamat', $data['alamat']);
+                $this->db->bind('kecamatan', $data['kecamatan']);
+                $this->db->bind('kabupaten', $data['kabupaten']);
+                $this->db->bind('provinsi', $data['provinsi']);
                 $this->db->bind('kategori_project', $data['kategori_project']);
                 $this->db->bind('nama_pic', $data['nama_pic']);
                 $this->db->bind('no_pic', $data['no_pic']);
@@ -57,6 +60,9 @@ class Client_model{
         $query = "UPDATE $this->tabel SET 
                 nama_client = :nama_client, 
                 alamat = :alamat, 
+                kecamatan = :kecamatan, 
+                kabupaten = :kabupaten, 
+                provinsi = :provinsi, 
                 kategori_project = :kategori_project, 
                 nama_pic = :nama_pic, 
                 no_pic = :no_pic, 
@@ -67,6 +73,9 @@ class Client_model{
             $this->db->bind('id_client', $data['id_client']);
             $this->db->bind('nama_client', $data['nama_client']);
             $this->db->bind('alamat', $data['alamat']);
+            $this->db->bind('kecamatan', $data['kecamatan']);
+            $this->db->bind('kabupaten', $data['kabupaten']);
+            $this->db->bind('provinsi', $data['provinsi']);
             $this->db->bind('kategori_project', $data['kategori_project']);
             $this->db->bind('nama_pic', $data['nama_pic']);
             $this->db->bind('no_pic', $data['no_pic']);
